@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sync - Voice Standup Summarizer
 
-## Getting Started
+Sync is a web application that helps teams record and summarize their daily standup meetings. It uses voice recording, speech-to-text conversion, and AI-powered summarization to create structured summaries of team updates.
 
-First, run the development server:
+## Features
 
+- Voice recording using browser's MediaRecorder API
+- Speech-to-text conversion using Vosk (offline in-browser)
+- AI-powered summarization using Ollama (Llama2)
+- Clean and intuitive Material-UI interface
+- Real-time processing and display of results
+
+## Prerequisites
+
+- Node.js 18+ and npm
+- Ollama installed locally (for LLM functionality)
+- Modern web browser with microphone access
+
+## Setup
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd sync
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Download and set up Vosk model:
+- Download the small English model from [Vosk Models](https://alphacephei.com/vosk/models)
+- Extract the model to the project root directory
+- Rename the extracted folder to `vosk-model-small-en-us-0.15`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Install and start Ollama:
+- Download and install Ollama from [ollama.ai](https://ollama.ai)
+- Pull the Llama2 model:
+```bash
+ollama pull llama2
+```
 
-## Learn More
+5. Start the development server:
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+6. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Click the "Start Recording" button to begin recording your standup
+2. Speak clearly into your microphone
+3. Click "Stop Recording" when finished
+4. Wait for the processing to complete
+5. Review the transcript and summary
 
-## Deploy on Vercel
+## Development
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The project is built with:
+- Next.js 14
+- TypeScript
+- Material-UI
+- Vosk for speech-to-text
+- Ollama for AI summarization
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Structure
+
+```
+sync/
+├── src/
+│   ├── app/
+│   │   └── page.tsx (main page)
+│   ├── components/
+│   │   ├── Recorder.tsx
+│   │   ├── TranscriptDisplay.tsx
+│   │   └── SummaryOutput.tsx
+│   └── lib/
+│       ├── stt.ts (speech-to-text)
+│       └── llm.ts (AI summarization)
+├── vosk-model-small-en-us-0.15/
+├── public/
+└── package.json
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
+
+MIT
