@@ -1,96 +1,49 @@
-# Sync - Voice Standup Summarizer
+# Sync - AI-Powered Meeting Assistant
 
-Sync is a web application that helps teams record and summarize their daily standup meetings. It uses voice recording, speech-to-text conversion, and AI-powered summarization to create structured summaries of team updates.
+Sync is a web application that automatically transcribes and summarizes your meetings in real-time. Using Google's Gemini AI, it helps you capture and organize key points from conversations without taking manual notes.
 
 ## Features
 
-- Voice recording using browser's MediaRecorder API
-- Speech-to-text conversion using Vosk (offline in-browser)
-- AI-powered summarization using Ollama (Llama2)
-- Clean and intuitive Material-UI interface
-- Real-time processing and display of results
+- 🎙️ Real-time voice recording and transcription
+- 🤖 AI-powered meeting summaries using Google's Gemini
+- 📝 Structured summaries with general points and individual contributions
+- 🔒 Secure authentication and data storage
+- 📱 Responsive design for all devices
 
-## Prerequisites
+## Tech Stack
 
-- Node.js 18+ and npm
-- Ollama installed locally (for LLM functionality)
-- Modern web browser with microphone access
+- Next.js (App Router)
+- React
+- Material-UI
+- Supabase (Auth & Database)
+- Google Gemini AI
+- Web Speech API
 
-## Setup
+## Getting Started
 
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd sync
-```
-
+1. Clone the repository
 2. Install dependencies:
-```bash
-npm install
-```
-
-3. Download and set up Vosk model:
-- Download the small English model from [Vosk Models](https://alphacephei.com/vosk/models)
-- Extract the model to the project root directory
-- Rename the extracted folder to `vosk-model-small-en-us-0.15`
-
-4. Install and start Ollama:
-- Download and install Ollama from [ollama.ai](https://ollama.ai)
-- Pull the Llama2 model:
-```bash
-ollama pull llama2
-```
-
-5. Start the development server:
-```bash
-npm run dev
-```
-
-6. Open [http://localhost:3000](http://localhost:3000) in your browser
+   ```bash
+   npm install
+   ```
+3. Set up environment variables:
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+   GEMINI_API_KEY=your_gemini_api_key
+   ```
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
 ## Usage
 
-1. Click the "Start Recording" button to begin recording your standup
-2. Speak clearly into your microphone
-3. Click "Stop Recording" when finished
-4. Wait for the processing to complete
-5. Review the transcript and summary
-
-## Development
-
-The project is built with:
-- Next.js 14
-- TypeScript
-- Material-UI
-- Vosk for speech-to-text
-- Ollama for AI summarization
-
-## Project Structure
-
-```
-sync/
-├── src/
-│   ├── app/
-│   │   └── page.tsx (main page)
-│   ├── components/
-│   │   ├── Recorder.tsx
-│   │   ├── TranscriptDisplay.tsx
-│   │   └── SummaryOutput.tsx
-│   └── lib/
-│       ├── stt.ts (speech-to-text)
-│       └── llm.ts (AI summarization)
-├── vosk-model-small-en-us-0.15/
-├── public/
-└── package.json
-```
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+1. Sign up or log in to your account
+2. Click "Start Recording" to begin capturing your meeting
+3. Speak naturally - Sync will transcribe in real-time
+4. Click "Stop Recording" when finished
+5. View your AI-generated summary with key points and individual contributions
 
 ## License
 
