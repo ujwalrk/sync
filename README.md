@@ -44,7 +44,3 @@ Sync is a web application that automatically transcribes and summarizes your mee
 3. Speak naturally - Sync will transcribe in real-time
 4. Click "Stop Recording" when finished
 5. View your AI-generated summary with key points and individual contributions
-
-## License
-
-MIT
